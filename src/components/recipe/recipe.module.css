@@ -1,0 +1,353 @@
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.title {
+  margin-top: var(--space-1);
+  font-size: 2.25rem;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 6px var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-size: var(--text-sm);
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--badge-passport-bg);
+  color: #4a0f22;
+}
+
+.h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-xl);
+  font-weight: 700;
+}
+
+.muted {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+}
+
+/* Interrupteur « écran allumé » */
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--target-min);
+  font-size: var(--text-sm);
+}
+
+.switchControl {
+  position: relative;
+  display: inline-flex;
+  width: 48px;
+  height: 28px;
+}
+
+.switchControl input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.switchTrack {
+  display: inline-flex;
+  align-items: center;
+  width: 48px;
+  height: 28px;
+  padding: 3px;
+  border-radius: 14px;
+  background: var(--color-control-border);
+}
+
+.switchTrack::after {
+  content: '';
+  width: 22px;
+  height: 22px;
+  border-radius: 11px;
+  background: var(--color-surface);
+}
+
+.switchControl input:checked + .switchTrack {
+  justify-content: flex-end;
+  background: var(--color-success);
+}
+
+.switchControl input:focus-visible + .switchTrack {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Ingrédients et étapes */
+.ingredients {
+  margin-top: var(--space-6);
+}
+
+.ingredient {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 52px;
+  border-top: 1px solid var(--color-action-soft);
+  font-size: var(--text-lg);
+}
+
+.ingredient input {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  accent-color: var(--color-success);
+}
+
+.ingredient span:first-of-type {
+  flex: 1;
+}
+
+.ingredient:has(input:checked) span {
+  color: var(--color-ink-soft);
+  text-decoration: line-through;
+}
+
+.qty {
+  font-weight: 600;
+}
+
+.steps {
+  display: grid;
+  gap: var(--space-3);
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.step {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.step::before {
+  counter-increment: step;
+  content: counter(step);
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+  font-weight: 700;
+}
+
+.check {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-warning-bg);
+  color: #4a3200;
+  font-size: var(--text-sm);
+}
+
+.siblings {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.sibling {
+  display: flex;
+  flex-direction: column;
+  min-height: 64px;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.sibling span {
+  font-size: var(--text-xs);
+  font-weight: 400;
+  color: var(--color-ink-soft);
+}
+
+.siblingNext {
+  text-align: right;
+}
+
+/* Vidéos */
+.videos {
+  margin-top: var(--space-8);
+}
+
+.videosHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.playBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+}
+
+.tabs {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  border: 1.5px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  font-weight: 600;
+}
+
+.tab[aria-selected='true'] {
+  border-color: var(--color-ink);
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+}
+
+.tabDetail {
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.panel {
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.player,
+.playerVertical {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-ink);
+}
+
+.player { aspect-ratio: 16 / 9; }
+.playerVertical { aspect-ratio: 9 / 16; max-height: 70vh; margin: 0 auto; }
+
+.player iframe,
+.playerVertical iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.facade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--color-on-dark);
+  font-weight: 600;
+}
+
+.facadePlay {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.facadeNote {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--color-on-dark-soft);
+}
+
+.videoTitle {
+  margin-top: var(--space-3);
+  font-weight: 600;
+}
+
+.ccYes,
+.ccNo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.ccYes { color: var(--color-success-strong); }
+.ccNo { color: var(--color-ink-soft); }
+
+.cc {
+  padding: 0 4px;
+  border: 1.5px solid currentColor;
+  border-radius: 4px;
+  font-size: 0.6875rem;
+}
+
+.external {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target-min);
+  font-weight: 600;
+}

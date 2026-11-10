@@ -1,0 +1,115 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding: 6px var(--space-3) 6px 6px;
+  border-radius: var(--radius-pill);
+  background: var(--color-brand);
+  color: var(--color-on-dark);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.badgeIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background: var(--color-surface);
+  color: var(--color-brand);
+}
+
+.source {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding: var(--space-3);
+}
+
+.thumb {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 60px;
+  border-radius: 8px;
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+}
+
+.rewatch {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--target-min);
+  font-weight: 600;
+}
+
+.block {
+  margin-top: var(--space-6);
+}
+
+.storeHead {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--space-4) 0 var(--space-1);
+  font-size: var(--text-md);
+  font-weight: 700;
+}
+
+.buyLine {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-top: 1px solid var(--color-action-soft);
+}
+
+.impact {
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  font-size: var(--text-sm);
+}
+
+.bestDay {
+  margin-top: var(--space-1);
+  color: var(--color-success-strong);
+  font-weight: 600;
+}
+
+.overBudget {
+  margin-top: var(--space-1);
+  color: var(--color-danger);
+  font-weight: 600;
+}
+
+.added {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.addedTitle {
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.addedText {
+  margin-top: var(--space-1);
+  color: var(--color-on-dark-soft);
+}
+
+.onDarkOutline {
+  border-color: var(--color-on-dark);
+  color: var(--color-on-dark);
+}
+
+.undo {
+  color: var(--color-on-dark);
+}

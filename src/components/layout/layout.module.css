@@ -1,0 +1,248 @@
+/* Structure des pages : colonne mobile, barre latérale à partir de 64rem. */
+
+.shell {
+  min-height: 100vh;
+  padding-bottom: calc(var(--nav-height) + var(--space-6));
+}
+
+.nav {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 20;
+  height: var(--nav-height);
+  border-top: 1px solid var(--color-line);
+  background: var(--color-surface);
+}
+
+.navList {
+  display: flex;
+  height: 100%;
+  margin: 0 auto;
+  max-width: 36rem;
+  padding: 0;
+  list-style: none;
+}
+
+.navList li {
+  flex: 1;
+}
+
+.navLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 100%;
+  color: var(--color-ink-soft);
+  font-size: var(--text-xs);
+  text-decoration: none;
+}
+
+.navLink[aria-current='page'] {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.navMark {
+  width: 18px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.navLink[aria-current='page'] .navMark {
+  background: var(--color-brand);
+}
+
+.navBrand {
+  display: none;
+}
+
+.navFooter {
+  display: none;
+}
+
+.page {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--space-4) var(--gutter) 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: var(--target-min);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.brandMark {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: var(--color-brand);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: var(--target-min);
+  padding-right: var(--space-3);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.header {
+  margin-top: var(--space-4);
+}
+
+.headerSub {
+  color: var(--color-ink-soft);
+}
+
+.title {
+  margin-top: 2px;
+  font-size: var(--text-2xl);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.section {
+  margin-top: var(--space-8);
+}
+
+.sectionTitle {
+  margin-bottom: var(--space-3);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.card {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.cardDark {
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+}
+
+.note {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-warning-bg);
+  line-height: var(--leading-normal);
+}
+
+.muted {
+  color: var(--color-ink-soft);
+}
+
+.small {
+  font-size: var(--text-sm);
+}
+
+.stack > * + * {
+  margin-top: var(--space-2);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.between {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.loading {
+  padding: var(--space-10) var(--gutter);
+  color: var(--color-ink-soft);
+  text-align: center;
+}
+
+@media (min-width: 64rem) {
+  .shell {
+    display: flex;
+    padding-bottom: var(--space-10);
+  }
+
+  .nav {
+    position: sticky;
+    top: 0;
+    inset: auto;
+    flex: 0 0 15rem;
+    height: 100vh;
+    border-top: 0;
+    border-right: 1px solid var(--color-line);
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .navBrand {
+    display: inline-flex;
+    margin: 0 0 var(--space-6) var(--space-3);
+  }
+
+  .navList {
+    flex-direction: column;
+    gap: var(--space-1);
+    height: auto;
+    max-width: none;
+  }
+
+  .navLink {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: var(--space-3);
+    min-height: var(--target-min);
+    padding: 0 var(--space-3);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-md);
+  }
+
+  .navLink[aria-current='page'] {
+    background: var(--color-action-soft);
+  }
+
+  .navMark {
+    display: none;
+  }
+
+  .navFooter {
+    display: block;
+    margin: var(--space-8) var(--space-3) 0;
+    font-size: var(--text-xs);
+    color: var(--color-ink-soft);
+  }
+
+  .main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .page {
+    padding-top: var(--space-8);
+  }
+}

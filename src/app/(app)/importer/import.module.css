@@ -1,0 +1,66 @@
+.form {
+  margin-top: var(--space-6);
+}
+
+.tip {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--badge-store-bg);
+  color: #142b63;
+  font-size: var(--text-sm);
+}
+
+.steps {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.dot {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--color-control-border);
+  border-radius: 14px;
+  background: var(--color-surface);
+  color: var(--color-on-dark);
+}
+
+.done .dot { border-color: var(--color-success); background: var(--color-success); }
+.current { font-weight: 600; }
+.current .dot { border-color: var(--color-brand); }
+.todo { color: var(--color-ink-soft); }
+
+.history {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  text-decoration: none;
+}
+
+.thumb {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 52px;
+  border-radius: 8px;
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+}

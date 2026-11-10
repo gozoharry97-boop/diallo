@@ -1,0 +1,109 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: calc(-1 * var(--space-4)) calc(-1 * var(--gutter)) 0;
+  padding: var(--space-6) var(--gutter) var(--space-8);
+  border-radius: 0 0 1.75rem 1.75rem;
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+  text-align: center;
+}
+
+.title {
+  margin-top: var(--space-3);
+  font-size: var(--text-3xl);
+  line-height: 1.02;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.lead {
+  max-width: 20rem;
+  margin-top: var(--space-3);
+  font-size: var(--text-lg);
+  color: var(--color-on-dark-soft);
+}
+
+.block {
+  margin-top: var(--space-8);
+}
+
+.h2 {
+  font-size: 1.3125rem;
+  font-weight: 700;
+}
+
+.stamps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  padding: 0;
+}
+
+.stampCard {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-5) var(--space-3);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.stamp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 124px;
+  height: 124px;
+  border: 3px solid currentColor;
+  border-radius: 50%;
+  outline: 1.5px dashed currentColor;
+  outline-offset: -11px;
+  text-align: center;
+}
+
+.stampKicker {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.stampName {
+  margin-top: 2px;
+  padding: 0 var(--space-3);
+  font-size: var(--text-md);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.resultDark {
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+}
+
+.resultTitle {
+  font-weight: 600;
+}
+
+.onDarkSoft {
+  color: var(--color-on-dark-soft);
+}
+
+.leftover {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-2) 0;
+  border-top: 1px solid var(--color-action-soft);
+}

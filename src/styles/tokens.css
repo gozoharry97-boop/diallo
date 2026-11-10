@@ -1,0 +1,73 @@
+/*
+ * Design tokens Diallo — source unique des couleurs, typographies, espacements et rayons.
+ * Contrastes vérifiés (WCAG 2.2 AA) : voir projet-diallo/qa.md.
+ */
+:root {
+  /* Couleurs de base */
+  --color-bg: #f2f3f7;
+  --color-surface: #ffffff;
+  --color-ink: #171a33;
+  --color-ink-soft: #555a72;      /* 6,1:1 sur --color-bg */
+  --color-ink-muted: #3d4160;
+  --color-line: #dcdfe8;
+  --color-control-border: #6e7186; /* 4,8:1 : bordures de champs, états éteints */
+  --color-action-soft: #eceef4;
+  --color-on-dark: #ffffff;
+  --color-on-dark-soft: #d9dbe6;
+  --color-dark-raised: #2a2e4f;
+
+  /* Marque et sémantique */
+  --color-brand: #a3214a;          /* bissap — 7,3:1 avec du blanc */
+  --color-budget: #f2b33d;         /* plantain */
+  --color-success: #23704f;        /* gombo */
+  --color-success-strong: #1b5e40;
+  --color-danger: #b3261e;
+  --color-warning-bg: #fff4d9;
+  --color-warning-ink: #8a4b00;
+  --color-focus: #2f4ba8;
+  --color-overlay: rgba(23, 26, 51, 0.5);
+
+  /* Pastilles des mécaniques de jeu (fond / trait) */
+  --badge-piggy-bg: #fbe7b5;  --badge-piggy-ink: #7a4f00;
+  --badge-passport-bg: #f6d3dc; --badge-passport-ink: #7a1a38;
+  --badge-pot-bg: #d5ecdf;    --badge-pot-ink: #1b5e40;
+  --badge-store-bg: #d7e4f7;  --badge-store-ink: #1f3a80;
+  --badge-leaf-bg: #2a2e4f;   --badge-leaf-ink: #8fd3ae;
+
+  /* Typographie */
+  --font-sans: 'Familjen Grotesk', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --text-xs: 0.8125rem;   /* 13 px */
+  --text-sm: 0.875rem;    /* 14 px */
+  --text-md: 0.9375rem;   /* 15 px */
+  --text-lg: 1.0625rem;   /* 17 px */
+  --text-xl: 1.375rem;    /* 22 px */
+  --text-2xl: 2.125rem;   /* 34 px */
+  --text-3xl: 2.5rem;     /* 40 px */
+  --leading-tight: 1.1;
+  --leading-normal: 1.45;
+
+  /* Espacements (base 4 px) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --gutter: 1.25rem;
+
+  /* Rayons, ombres, tailles */
+  --radius-sm: 0.625rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.125rem;
+  --radius-xl: 1.5rem;
+  --radius-pill: 999px;
+  --shadow-ticket: 0 10px 24px rgba(23, 26, 51, 0.08);
+  --shadow-bubble: 0 6px 16px rgba(23, 26, 51, 0.06);
+  --target-min: 44px;
+  --nav-height: 76px;
+  --content-max: 65rem;
+  --focus-ring: 3px solid var(--color-focus);
+}

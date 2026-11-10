@@ -1,0 +1,58 @@
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stepLabel {
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+}
+
+.progress {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: var(--space-3);
+}
+
+.segment,
+.segmentOn {
+  height: 5px;
+  border-radius: 3px;
+  background: var(--color-line);
+}
+
+.segmentOn {
+  background: var(--color-brand);
+}
+
+.question {
+  margin-top: var(--space-6);
+}
+
+.title {
+  font-size: 1.3125rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.hint {
+  color: var(--color-ink-soft);
+}
+
+.body {
+  margin-top: var(--space-6);
+}
+
+.footer {
+  display: flex;
+  gap: var(--space-3);
+  margin: var(--space-8) 0 var(--space-10);
+}
+
+.back {
+  min-height: 56px;
+  border-radius: var(--radius-md);
+}

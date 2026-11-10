@@ -1,0 +1,5 @@
+{
+  "generatedAt": null,
+  "note": "Rempli par `npm run ingest:prices`. Vide tant que l'ingestion n'a pas tourné : l'application utilise alors les prix de référence.",
+  "entries": []
+}
