@@ -1,8 +1,14 @@
 # Diallo
 
+**[Voir l'application → diallo-murex.vercel.app](https://diallo-murex.vercel.app)**
+
 Diallo compose tes dîners de la semaine dans ton budget, avec les prix de tes magasins (supermarchés et épiceries du monde), et te prépare la liste de courses. Une mascotte t'accompagne : cagnotte, passeport des cuisines, défi zéro gaspi. Tu peux aussi coller le lien d'une vidéo TikTok, Instagram ou YouTube : Diallo en tire une recette en 4 étapes et la liste de courses chiffrée.
 
 Next.js 16 (App Router) · React 19 · TypeScript · Supabase (facultatif) · Claude API (import vidéo).
+
+## Déploiement
+
+L'application est hébergée sur Vercel, relié à ce dépôt : chaque envoi sur `main` met le site à jour. Les clés se règlent dans Vercel, rubrique Settings → Environment Variables (liste dans `.env.example`).
 
 ## Lancer le projet
 
