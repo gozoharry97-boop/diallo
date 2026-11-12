@@ -54,25 +54,25 @@ export interface Cuisine {
   continent: ContinentId;
   /** Initiales affichées sur la pastille du dîner. */
   short: string;
-  /** Teinte de la pastille (le texte reste #171A33). */
+  /** Teinte de la pastille (le texte reste #1f1a17). */
   tint: string;
 }
 
 export const CUISINES: readonly Cuisine[] = [
-  { id: 'fr', name: 'Française', continent: 'europe', short: 'Fr', tint: '#D5ECDF' },
-  { id: 'it', name: 'Italienne', continent: 'europe', short: 'It', tint: '#D5ECDF' },
-  { id: 'es', name: 'Espagne & Portugal', continent: 'europe', short: 'Es', tint: '#D5ECDF' },
-  { id: 'med', name: 'Grèce & Méditerranée', continent: 'europe', short: 'Mé', tint: '#D5ECDF' },
-  { id: 'nord', name: "Europe du Nord & de l'Est", continent: 'europe', short: 'NE', tint: '#D5ECDF' },
-  { id: 'ao', name: "Afrique de l'Ouest", continent: 'afrique', short: 'AO', tint: '#F6D3DC' },
-  { id: 'ac', name: 'Afrique centrale', continent: 'afrique', short: 'AC', tint: '#F6D3DC' },
-  { id: 'ae', name: "Afrique de l'Est", continent: 'afrique', short: 'AE', tint: '#F6D3DC' },
-  { id: 'ma', name: 'Maghreb', continent: 'afrique', short: 'Ma', tint: '#F9EBB8' },
+  { id: 'fr', name: 'Française', continent: 'europe', short: 'Fr', tint: '#ddefe3' },
+  { id: 'it', name: 'Italienne', continent: 'europe', short: 'It', tint: '#ddefe3' },
+  { id: 'es', name: 'Espagne & Portugal', continent: 'europe', short: 'Es', tint: '#ddefe3' },
+  { id: 'med', name: 'Grèce & Méditerranée', continent: 'europe', short: 'Mé', tint: '#ddefe3' },
+  { id: 'nord', name: "Europe du Nord & de l'Est", continent: 'europe', short: 'NE', tint: '#ddefe3' },
+  { id: 'ao', name: "Afrique de l'Ouest", continent: 'afrique', short: 'AO', tint: '#fce3d3' },
+  { id: 'ac', name: 'Afrique centrale', continent: 'afrique', short: 'AC', tint: '#fce3d3' },
+  { id: 'ae', name: "Afrique de l'Est", continent: 'afrique', short: 'AE', tint: '#fce3d3' },
+  { id: 'ma', name: 'Maghreb', continent: 'afrique', short: 'Ma', tint: '#fff1cf' },
   { id: 'cn', name: 'Chine', continent: 'asie', short: 'Ch', tint: '#D7E4F7' },
   { id: 'jp', name: 'Japon', continent: 'asie', short: 'Jp', tint: '#D7E4F7' },
   { id: 'kr', name: 'Corée', continent: 'asie', short: 'Co', tint: '#D7E4F7' },
   { id: 'se', name: 'Thaïlande & Vietnam', continent: 'asie', short: 'TV', tint: '#D7E4F7' },
-  { id: 'in', name: 'Inde', continent: 'asie', short: 'In', tint: '#FBE3C4' },
+  { id: 'in', name: 'Inde', continent: 'asie', short: 'In', tint: '#fce3d3' },
   { id: 'mo', name: 'Liban & Moyen-Orient', continent: 'moyen-orient', short: 'MO', tint: '#E6DDF5' },
   { id: 'lat', name: 'Mexique & Amérique latine', continent: 'ameriques', short: 'AL', tint: '#FCE1CF' },
   { id: 'ant', name: 'Antilles & Réunion', continent: 'ameriques', short: 'An', tint: '#FCE1CF' },

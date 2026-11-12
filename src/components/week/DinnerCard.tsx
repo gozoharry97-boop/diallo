@@ -1,8 +1,9 @@
+import Link from 'next/link';
 import { CUISINES_BY_ID, DAYS } from '@/domain/data/catalog';
 import { eur } from '@/domain/format';
 import type { Recipe } from '@/domain/types';
-import { Button, ButtonLink } from '../ui/Button';
 import { Icon } from '../ui/Icon';
+import { DishArt } from './DishArt';
 import styles from './week.module.css';
 
 export function CuisineBadge({ cuisine, size = 46 }: { cuisine: Recipe['cuisine']; size?: number }) {
@@ -20,37 +21,52 @@ interface Props {
   perPerson: number;
   cooked: boolean;
   newStamp: boolean;
+  selected: boolean;
   onToggleCooked: () => void;
   onSwap: () => void;
 }
 
-export function DinnerCard({ recipe, day, perPerson, cooked, newStamp, onToggleCooked, onSwap }: Props) {
+/** Carte d'un dîner : toute la carte ouvre la recette ; le rond coche « cuisiné » ; le jour choisi montre ses actions. */
+export function DinnerCard({ recipe, day, perPerson, cooked, newStamp, selected, onToggleCooked, onSwap }: Props) {
   const cuisine = CUISINES_BY_ID[recipe.cuisine];
   return (
-    <li className={`${styles.dinner} ${cooked ? styles.dinnerDone : ''}`}>
-      <article aria-labelledby={`diner-${day}`}>
+    <li>
+      <article className={`${styles.dinner} ${selected ? styles.dinnerSelected : ''}`} aria-labelledby={`diner-${day}`}>
         <div className={styles.dinnerTop}>
-          <CuisineBadge cuisine={recipe.cuisine} />
-          <div>
-            <p className={styles.day}>
-              {DAYS[day]}
+          <DishArt recipe={recipe} />
+          <div className="grow">
+            <p className={styles.day}>{DAYS[day]} · {cuisine.name}</p>
+            <h3 id={`diner-${day}`} className={styles.dinnerName}>
+              <Link href={`/recette?jour=${day}`} className={styles.stretch}>{recipe.name}</Link>
+            </h3>
+            <p className={styles.meta}>
+              <span className={styles.metaTime}><Icon name="clock" size={14} />{recipe.minutes} min</span>
+              <span>{eur(perPerson)} la part</span>
+              {recipe.spicy && <span>Pimenté</span>}
+              {recipe.source && <span>Vidéo</span>}
               {newStamp && <span className={styles.stamp}>Nouveau tampon</span>}
             </p>
-            <h3 id={`diner-${day}`} className={styles.dinnerName}>{recipe.name}</h3>
-            <p className={styles.meta}>
-              {cuisine.name}, {recipe.minutes} min, {eur(perPerson)} la part{recipe.spicy ? ', pimenté' : ''}
-              {recipe.source ? ', recette vidéo' : ''}
-            </p>
           </div>
+          <button
+            type="button"
+            className={`${styles.cookToggle} ${styles.lift}`}
+            aria-pressed={cooked}
+            aria-label={cooked ? `${recipe.name} : cuisiné` : `Je l’ai cuisiné : ${recipe.name}`}
+            onClick={onToggleCooked}
+          >
+            {cooked && <Icon name="check" size={20} strokeWidth={2.6} />}
+          </button>
         </div>
-        <div className={styles.actions}>
-          <Button variant={cooked ? 'success' : 'soft'} aria-pressed={cooked} onClick={onToggleCooked}>
-            {cooked && <Icon name="check" size={16} strokeWidth={2.6} />}
-            {cooked ? 'Cuisiné' : 'Je l’ai cuisiné'}
-          </Button>
-          <ButtonLink href={`/recette?jour=${day}`} variant="soft">Recette</ButtonLink>
-          <Button variant="soft" onClick={onSwap}>Changer</Button>
-        </div>
+        {selected && (
+          <div className={`${styles.actions} ${styles.lift}`}>
+            <button type="button" className={styles.actionMain} aria-pressed={cooked} onClick={onToggleCooked}>
+              {cooked ? 'Cuisiné, bravo !' : 'Je l’ai cuisiné'}
+            </button>
+            <button type="button" className={styles.actionIcon} aria-label={`Changer le dîner de ${DAYS[day].toLowerCase()}`} onClick={onSwap}>
+              <Icon name="swap" />
+            </button>
+          </div>
+        )}
       </article>
     </li>
   );

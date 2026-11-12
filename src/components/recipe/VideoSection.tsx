@@ -9,7 +9,7 @@ import styles from './recipe.module.css';
 const durationLabel = (s?: number) => (s === undefined ? '' : s < 60 ? `${s} s` : `${Math.floor(s / 60)} min${s % 60 ? ` ${s % 60}` : ''}`);
 
 /** Vidéos du plat : onglets accessibles et lecteur officiel chargé seulement au clic (cookies tiers). */
-export function VideoSection({ recipeId, fallback }: { recipeId: string; fallback?: VideoLink[] }) {
+export function VideoSection({ recipeId, fallback, heading = true }: { recipeId: string; fallback?: VideoLink[]; heading?: boolean }) {
   const [videos, setVideos] = useState<VideoLink[] | null>(fallback ?? null);
   const [active, setActive] = useState(0);
   const [playing, setPlaying] = useState(false);
@@ -27,7 +27,8 @@ export function VideoSection({ recipeId, fallback }: { recipeId: string; fallbac
     };
   }, [recipeId, fallback]);
 
-  if (!videos || videos.length === 0) return null;
+  if (!videos) return heading ? null : <p className={styles.muted} role="status">Recherche de vidéos…</p>;
+  if (videos.length === 0) return heading ? null : <p className={styles.muted}>Pas encore de vidéo pour ce plat. Les étapes de la fiche suffisent pour le réussir.</p>;
   const video = videos[Math.min(active, videos.length - 1)];
   const vertical = video.platform !== 'youtube';
 
@@ -48,17 +49,17 @@ export function VideoSection({ recipeId, fallback }: { recipeId: string; fallbac
   };
 
   return (
-    <section className={styles.videos} aria-labelledby="videos-titre">
-      <div className={styles.videosHead}>
+    <section className={heading ? styles.videos : undefined} aria-labelledby={heading ? 'videos-titre' : undefined} aria-label={heading ? undefined : 'Vidéos du plat'}>
+      {heading && <div className={styles.videosHead}>
         <h2 id="videos-titre" className={styles.h2}>
           <span className={styles.playBadge} aria-hidden="true"><Icon name="play" size={18} /></span>
           En vidéo
         </h2>
         <span className={styles.muted}>{videos.length} {videos.length > 1 ? 'vidéos trouvées' : 'vidéo'}</span>
-      </div>
+      </div>}
 
       {videos.length > 1 && (
-        <div role="tablist" aria-label="Choisir une vidéo" className={styles.tabs} onKeyDown={onKeyDown}>
+        <div role="tablist" aria-label="Choisir une plateforme" className={styles.tabs} onKeyDown={onKeyDown}>
           {videos.map((v, i) => (
             <button
               key={v.videoId}

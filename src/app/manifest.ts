@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: 'Dîners de la semaine, liste de courses et recettes vidéo, dans ton budget.',
     start_url: '/semaine',
     display: 'standalone',
-    background_color: '#f2f3f7',
-    theme_color: '#a3214a',
+    background_color: '#fbf6ef',
+    theme_color: '#c2451e',
     lang: 'fr',
     icons: [{ src: '/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
     // Partager une vidéo depuis TikTok ou Instagram vers Diallo (Android ; non pris en charge par Safari iOS).

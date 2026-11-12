@@ -1,41 +1,47 @@
 /*
  * Design tokens Diallo — source unique des couleurs, typographies, espacements et rayons.
+ * Thème v2 « style benchmark » : tons chauds, titres en Bricolage Grotesque, texte en DM Sans.
  * Contrastes vérifiés (WCAG 2.2 AA) : voir projet-diallo/qa.md.
  */
 :root {
   /* Couleurs de base */
-  --color-bg: #f2f3f7;
+  --color-bg: #fbf6ef;
   --color-surface: #ffffff;
-  --color-ink: #171a33;
-  --color-ink-soft: #555a72;      /* 6,1:1 sur --color-bg */
-  --color-ink-muted: #3d4160;
-  --color-line: #dcdfe8;
-  --color-control-border: #6e7186; /* 4,8:1 : bordures de champs, états éteints */
-  --color-action-soft: #eceef4;
+  --color-ink: #1f1a17;
+  --color-ink-soft: #6b5f57;      /* 5,7:1 sur --color-bg */
+  --color-ink-muted: #4e433c;
+  --color-line: #e6dbd1;
+  --color-control-border: #7a6d64; /* 4,6:1 : bordures de champs, états éteints */
+  --color-action-soft: #f3ede6;
   --color-on-dark: #ffffff;
-  --color-on-dark-soft: #d9dbe6;
-  --color-dark-raised: #2a2e4f;
+  --color-on-dark-soft: #e3d9d1;
+  --color-dark-raised: #3a302a;
 
   /* Marque et sémantique */
-  --color-brand: #a3214a;          /* bissap — 7,3:1 avec du blanc */
-  --color-budget: #f2b33d;         /* plantain */
-  --color-success: #23704f;        /* gombo */
-  --color-success-strong: #1b5e40;
+  --color-brand: #c2451e;          /* terre cuite — 5,0:1 avec du blanc */
+  --color-brand-text: #a33a17;     /* liens en couleur de marque sur fond clair — 6,1:1 */
+  --color-brand-deep: #9a3416;     /* pastille posée sur un bouton de marque */
+  --color-budget: #f5b847;         /* plantain */
+  --color-success: #1f6b45;        /* gombo */
+  --color-success-strong: #1f5e3b;
   --color-danger: #b3261e;
-  --color-warning-bg: #fff4d9;
+  --color-danger-bg: #fbe0dc;
+  --color-danger-ink: #8e1f17;
+  --color-warning-bg: #fff1cf;
   --color-warning-ink: #8a4b00;
   --color-focus: #2f4ba8;
-  --color-overlay: rgba(23, 26, 51, 0.5);
+  --color-overlay: rgba(31, 26, 23, 0.5);
 
   /* Pastilles des mécaniques de jeu (fond / trait) */
-  --badge-piggy-bg: #fbe7b5;  --badge-piggy-ink: #7a4f00;
-  --badge-passport-bg: #f6d3dc; --badge-passport-ink: #7a1a38;
-  --badge-pot-bg: #d5ecdf;    --badge-pot-ink: #1b5e40;
+  --badge-piggy-bg: #fff1cf;  --badge-piggy-ink: #6b4a00;
+  --badge-passport-bg: #fce3d3; --badge-passport-ink: #7a2a0f;
+  --badge-pot-bg: #ddefe3;    --badge-pot-ink: #1f5e3b;
   --badge-store-bg: #d7e4f7;  --badge-store-ink: #1f3a80;
-  --badge-leaf-bg: #2a2e4f;   --badge-leaf-ink: #8fd3ae;
+  --badge-leaf-bg: #3a302a;   --badge-leaf-ink: #8fd3ae;
 
   /* Typographie */
-  --font-sans: 'Familjen Grotesk', system-ui, sans-serif;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif; /* titres */
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
   --text-xs: 0.8125rem;   /* 13 px */
   --text-sm: 0.875rem;    /* 14 px */
@@ -61,13 +67,15 @@
   /* Rayons, ombres, tailles */
   --radius-sm: 0.625rem;
   --radius-md: 0.875rem;
-  --radius-lg: 1.125rem;
+  --radius-lg: 1.375rem;          /* 22 px : cartes v2 */
   --radius-xl: 1.5rem;
   --radius-pill: 999px;
-  --shadow-ticket: 0 10px 24px rgba(23, 26, 51, 0.08);
-  --shadow-bubble: 0 6px 16px rgba(23, 26, 51, 0.06);
+  --shadow-ticket: 0 10px 24px rgba(31, 26, 23, 0.08);
+  --shadow-nav: 0 10px 30px rgba(31, 26, 23, 0.12);
+  --shadow-bar: 0 -8px 20px rgba(31, 26, 23, 0.06);
+  --shadow-bubble: 0 6px 16px rgba(31, 26, 23, 0.06);
   --target-min: 44px;
-  --nav-height: 76px;
+  --nav-clearance: 82px;       /* hauteur de la barre flottante + son décalage */
   --content-max: 65rem;
   --focus-ring: 3px solid var(--color-focus);
 }

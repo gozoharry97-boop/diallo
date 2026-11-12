@@ -15,14 +15,14 @@ const LABEL: Record<Mood, string> = { content: 'contente', concentre: 'concentr√
 
 /** Diallo, la petite marmite. Le texte de son humeur est lu par les lecteurs d'√©cran. */
 export function Mascot({ mood = 'content', size = 92, onDark = false, steaming = false }: { mood?: Mood; size?: number; onDark?: boolean; steaming?: boolean }) {
-  const lid = onDark ? '#ffffff' : '#171a33';
+  const lid = onDark ? '#ffffff' : '#1f1a17';
   return (
     <svg width={size} height={size} viewBox="0 0 96 96" role="img" aria-label={`Diallo, la petite marmite, ${LABEL[mood]}`} className={styles.mascot}>
       <path
         className={steaming ? styles.steam : undefined}
         d="M38 20c-4-5 4-8 0-13M48 18c-4-5 4-8 0-13M58 20c-4-5 4-8 0-13"
         fill="none"
-        stroke="#9ea3b8"
+        stroke="#b9a79b"
         strokeWidth="2.5"
         strokeLinecap="round"
       />
@@ -33,8 +33,8 @@ export function Mascot({ mood = 'content', size = 92, onDark = false, steaming =
       <ellipse cx="48" cy="34" rx="32" ry="7" fill={lid} />
       <circle cx="38" cy="54" r="7.5" fill="#fff" />
       <circle cx="58" cy="54" r="7.5" fill="#fff" />
-      <circle cx="39" cy="55" r="3.6" fill="#171a33" />
-      <circle cx="59" cy="55" r="3.6" fill="#171a33" />
+      <circle cx="39" cy="55" r="3.6" fill="#1f1a17" />
+      <circle cx="59" cy="55" r="3.6" fill="#1f1a17" />
       <circle cx="29" cy="66" r="4" fill="var(--color-budget)" />
       <circle cx="67" cy="66" r="4" fill="var(--color-budget)" />
       {BROWS[mood] && <path d={BROWS[mood]} fill="none" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />}

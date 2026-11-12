@@ -36,9 +36,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           {LINKS.map((link) => (
             <li key={link.href}>
               <Link href={link.href} className={styles.navLink} aria-current={pathname.startsWith(link.href) ? 'page' : undefined}>
-                <Icon name={link.icon} size={24} />
+                <Icon name={link.icon} size={22} />
                 <span>{link.label}</span>
-                <span className={styles.navMark} aria-hidden="true" />
               </Link>
             </li>
           ))}

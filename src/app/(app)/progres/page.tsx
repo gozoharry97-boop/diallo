@@ -10,7 +10,7 @@ import { IconBadge } from '@/components/ui/IconBadge';
 import { useAppState } from '@/state/store';
 import styles from './progres.module.css';
 
-const COLORS = ['var(--color-brand)', '#2f4ba8', 'var(--color-success-strong)', '#7a4f00'];
+const COLORS = ['var(--color-brand)', '#2f4ba8', 'var(--color-success-strong)', '#6b4a00'];
 
 /** E19 — Mes progrès : cagnotte, passeport des cuisines, séries et défis. Aucun classement. */
 export default function ProgressPage() {

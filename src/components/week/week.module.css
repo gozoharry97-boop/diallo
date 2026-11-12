@@ -1,39 +1,207 @@
-/* Ticket de caisse : l'unique élément expressif de l'interface. */
-.ticket {
-  position: relative;
-  margin-top: var(--space-5);
-  padding: var(--space-5) var(--space-4) var(--space-6);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-ticket);
-  font-family: var(--font-mono);
+/* Ma semaine (v2) : en-tête, bande des jours, carte budget, dîners, progrès, défi. */
+
+/* En-tête avec la mascotte */
+.hello {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.helloText {
+  flex: 1;
+  min-width: 0;
+}
+
+.eyebrow {
   font-size: var(--text-sm);
-  line-height: 1.55;
+  color: var(--color-ink-soft);
 }
 
-.ticket::after {
-  content: '';
-  position: absolute;
-  inset: auto 0 -10px;
-  height: 10px;
-  background:
-    linear-gradient(135deg, var(--color-surface) 50%, transparent 50%) 0 0 / 14px 10px repeat-x,
-    linear-gradient(-135deg, var(--color-surface) 50%, transparent 50%) 0 0 / 14px 10px repeat-x;
+.headline {
+  margin-top: 1px;
+  font-size: 1.4375rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
 }
 
-.ticketHead {
-  text-align: center;
+.streak {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 4px;
+  padding: 7px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-size: 0.75rem;
+  font-weight: 700;
 }
 
-.ticketStores {
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+.streak svg {
+  color: var(--color-brand-text);
 }
 
-.dash {
-  margin: var(--space-3) 0;
+.bubble {
+  margin-top: var(--space-3);
+  padding: 14px var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--badge-passport-bg);
+  color: var(--color-ink);
+}
+
+/* Bande des jours */
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  margin-top: var(--space-4);
+}
+
+.dayButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  height: 64px;
+  padding: 0;
   border: 0;
-  border-top: 1.5px dashed #9ea3b8;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+.dayButton[aria-pressed='true'] {
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+}
+
+.dayButton:disabled {
+  background: var(--color-action-soft);
+  color: var(--color-ink-soft);
+  cursor: default;
+}
+
+.dayShort {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.dayNum {
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.dayFree {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.dayDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+}
+
+.dayDot[data-state='done'] {
+  background: var(--color-success);
+}
+
+.dayDot[data-state='planned'] {
+  border: 1.5px solid var(--color-control-border);
+}
+
+.dayButton[aria-pressed='true'] .dayDot[data-state='done'] {
+  background: var(--color-budget);
+}
+
+.dayButton[aria-pressed='true'] .dayDot[data-state='planned'] {
+  border-color: var(--color-on-dark-soft);
+}
+
+/* Carte budget */
+.budget {
+  margin-top: var(--space-4);
+  padding: 18px 18px var(--space-5);
+  border-radius: var(--radius-xl);
+  background: var(--color-surface);
+}
+
+.budgetHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.budgetLabel {
+  font-size: var(--text-xs);
+  color: var(--color-ink-soft);
+}
+
+.budgetTotal {
+  margin-top: 2px;
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.budgetSide {
+  text-align: right;
+}
+
+.pillGood,
+.pillBad {
+  display: inline-block;
+  margin-top: var(--space-1);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.pillGood {
+  background: var(--badge-pot-bg);
+  color: var(--badge-pot-ink);
+}
+
+.pillBad {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-ink);
+}
+
+.budgetBar {
+  margin-top: 14px;
+}
+
+.budgetFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-1);
+  font-size: 0.75rem;
+  color: var(--color-ink-soft);
+}
+
+.detailToggle {
+  min-height: var(--target-min);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-ink);
+  text-decoration: underline;
+}
+
+.detail {
+  margin: 0 0 var(--space-1);
+  padding-top: var(--space-3);
+  border-top: 1.5px dashed var(--color-line);
+  font-size: var(--text-xs);
+  line-height: 1.6;
 }
 
 .line {
@@ -46,56 +214,113 @@
   flex: 1;
   min-width: 0;
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.line dt strong {
+  font-weight: 600;
 }
 
 .line dd {
   flex-shrink: 0;
   margin: 0;
+}
+
+.good {
+  color: var(--color-success-strong);
+}
+
+.listCta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  min-height: 54px;
+  margin-top: 6px;
+  padding: 0 6px 0 var(--space-5);
+  border-radius: var(--radius-pill);
+  background: var(--color-brand);
+  color: var(--color-on-dark);
+  font-size: 1rem;
+  line-height: 1.2;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.listCta:hover {
+  color: var(--color-on-dark);
+  filter: brightness(0.95);
+}
+
+.listCount {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 4px;
+  height: 42px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--color-brand-deep);
+  font-size: var(--text-xs);
   white-space: nowrap;
 }
 
-.total {
-  font-size: 1.25rem;
+/* Titres de section */
+.sectionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.sectionTitle {
+  font-size: 1.4375rem;
+}
+
+.seeAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: var(--target-min);
   font-weight: 600;
+  color: var(--color-brand-text);
+  text-decoration: none;
 }
 
-.good { color: var(--color-success); font-weight: 600; }
-.bad { color: var(--color-danger); font-weight: 600; }
-
-.ticketBar {
-  margin-top: var(--space-3);
-}
-
-.ticketFoot {
-  margin-top: var(--space-3);
-  font-size: 0.75rem;
-  color: var(--color-ink-soft);
-}
-
-/* Cartes de dîner */
+/* Dîners */
 .dinners {
   display: grid;
-  gap: var(--space-3);
+  gap: 10px;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .dinner {
-  padding: var(--space-4) var(--space-4) var(--space-3);
+  position: relative;
+  padding: var(--space-3);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
 }
 
-.dinnerDone {
-  box-shadow: inset 0 0 0 2px var(--color-success);
+.dinnerSelected {
+  box-shadow: inset 0 0 0 2px var(--color-brand);
 }
 
 .dinnerTop {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-3);
+}
+
+.dishArt {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
 }
 
 .cuisine {
@@ -103,50 +328,123 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 46px;
-  height: 46px;
   border-radius: var(--radius-sm);
   font-weight: 700;
   color: var(--color-ink);
 }
 
 .day {
-  font-size: var(--text-xs);
+  font-size: 0.75rem;
+  font-weight: 600;
   color: var(--color-ink-soft);
 }
 
 .dinnerName {
   margin-top: 2px;
-  font-size: var(--text-lg);
+  font-family: var(--font-sans);
+  font-size: 1rem;
   line-height: 1.2;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* Le lien du titre couvre toute la carte ; les boutons passent au-dessus. */
+.stretch {
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.stretch::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+}
+
+.lift {
+  position: relative;
+  z-index: 1;
 }
 
 .meta {
-  margin-top: var(--space-1);
-  font-size: var(--text-sm);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px var(--space-3);
+  margin-top: 6px;
+  font-size: 0.75rem;
   color: var(--color-ink-soft);
 }
 
+.metaTime {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .stamp {
-  display: inline-block;
-  margin-left: var(--space-2);
-  padding: 2px var(--space-2);
+  padding: 0 var(--space-2);
   border-radius: var(--radius-pill);
-  background: var(--badge-passport-bg);
-  color: var(--badge-passport-ink);
-  font-size: 0.75rem;
-  font-weight: 600;
+  background: var(--badge-piggy-bg);
+  color: var(--badge-piggy-ink);
+  font-weight: 700;
+}
+
+.cookToggle {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--target-min);
+  height: var(--target-min);
+  padding: 0;
+  border: 2px solid var(--color-control-border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-on-dark);
+}
+
+.cookToggle[aria-pressed='true'] {
+  border-color: var(--color-success);
+  background: var(--color-success);
 }
 
 .actions {
   display: flex;
-  flex-wrap: wrap;
   gap: var(--space-2);
   margin-top: var(--space-3);
 }
 
-/* Tuiles de progrès */
+.actionMain {
+  flex: 1;
+  min-height: var(--target-min);
+  padding: 0 var(--space-3);
+  border: 1.5px solid var(--color-ink);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.actionMain[aria-pressed='true'] {
+  border-color: var(--color-success);
+  background: var(--color-success);
+  color: var(--color-on-dark);
+}
+
+.actionIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--target-min);
+  height: var(--target-min);
+  padding: 0;
+  border: 1.5px solid var(--color-ink);
+  border-radius: 50%;
+  background: transparent;
+}
+
+/* Progrès */
 .tiles {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -154,41 +452,63 @@
 }
 
 .tile {
-  display: block;
-  padding: var(--space-3) var(--space-3);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
-  text-decoration: none;
+  padding: 14px var(--space-3);
+  border-radius: 20px;
 }
 
+.tile[data-tone='piggy'] { background: var(--badge-piggy-bg); --tone-ink: var(--badge-piggy-ink); }
+.tile[data-tone='passport'] { background: var(--badge-passport-bg); --tone-ink: var(--badge-passport-ink); }
+.tile[data-tone='pot'] { background: var(--badge-pot-bg); --tone-ink: var(--badge-pot-ink); }
+
 .tileLabel {
-  margin-top: var(--space-2);
   font-size: 0.75rem;
-  color: var(--color-ink-soft);
+  font-weight: 600;
+  color: var(--tone-ink);
 }
 
 .tileValue {
-  margin-top: var(--space-1);
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.tileSub {
+  margin-top: 2px;
+  font-size: 0.75rem;
+  color: var(--color-ink-muted);
 }
 
 /* Défi zéro gaspi */
 .challenge {
   margin-top: var(--space-3);
+  padding: 18px;
+  border-radius: var(--radius-lg);
+  background: var(--color-ink);
+  color: var(--color-on-dark);
+}
+
+.challengeHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
 }
 
 .challengeTitle {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  font-size: var(--text-lg);
+  font-size: 1.125rem;
+}
+
+.challengeReward {
+  font-size: var(--text-xs);
   font-weight: 700;
+  color: var(--color-budget);
 }
 
 .challengeText {
-  margin-top: var(--space-2);
+  margin-top: 6px;
   color: var(--color-on-dark-soft);
 }
 
@@ -216,17 +536,44 @@
   color: var(--color-on-dark-soft);
 }
 
+/* Carte « importer une vidéo » */
+.importCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.importTitle {
+  font-size: 1.1875rem;
+  line-height: 1.15;
+}
+
+.importIcon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--badge-passport-bg);
+  color: var(--badge-passport-ink);
+}
+
 /* Mise en page « Ma semaine » sur grand écran */
 .weekLayout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: var(--space-2);
+  gap: var(--space-8);
+  margin-top: var(--space-2);
 }
 
 @media (min-width: 64rem) {
   .weekLayout {
-    grid-template-columns: minmax(20rem, 24rem) 1fr;
-    gap: var(--space-8);
+    grid-template-columns: minmax(20rem, 24rem) minmax(0, 1fr);
     align-items: start;
   }
 

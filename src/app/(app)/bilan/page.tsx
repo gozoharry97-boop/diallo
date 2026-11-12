@@ -15,7 +15,7 @@ import { IconBadge } from '@/components/ui/IconBadge';
 import { composeWeek, useWeek } from '@/state/useWeek';
 import styles from './bilan.module.css';
 
-const STAMP_COLORS = ['var(--color-brand)', '#2f4ba8', 'var(--color-success-strong)', '#7a4f00'];
+const STAMP_COLORS = ['var(--color-brand)', '#2f4ba8', 'var(--color-success-strong)', '#6b4a00'];
 
 /** E12 — Bilan de la semaine : le moment fort (tampons, cagnotte, série), puis nouvelle semaine. */
 export default function WeeklyReviewPage() {
